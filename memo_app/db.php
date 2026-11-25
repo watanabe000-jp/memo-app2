@@ -1,12 +1,10 @@
 <?php
-// SQLiteデータベースに接続する
 $dbFile = __DIR__ . '/memo.db';
 
 try {
     $pdo = new PDO('sqlite:' . $dbFile);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // メモを保存するテーブルがなければ作成する
     $pdo->exec(
         'CREATE TABLE IF NOT EXISTS memos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
